@@ -1,0 +1,19 @@
+{
+  "name": "senior_project",
+  "version": "1.0.0",
+  "description": "Drew's senior project for ole miss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Opfes/senior-project.git"
+  },
+  "author": "Drew Lindsay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Opfes/senior-project/issues"
+  },
+  "homepage": "https://github.com/Opfes/senior-project#readme"
+}
