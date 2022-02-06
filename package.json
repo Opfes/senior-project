@@ -2,7 +2,7 @@
   "name": "senior_project",
   "version": "1.0.0",
   "description": "Drew's senior project for ole miss",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/Opfes/senior-project/issues"
   },
-  "homepage": "https://github.com/Opfes/senior-project#readme"
+  "homepage": "https://github.com/Opfes/senior-project#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.15.1"
+  }
 }
