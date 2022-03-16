@@ -4,6 +4,10 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Button, Paper } from '@mui/material';
 
+//https://app.haikei.app/
+//https://fireship.io/lessons/wavy-backgrounds/
+//https://colorhunt.co/palette/03045e00b4d890e0efcaf0f8
+
 function App() {
   return (
     <html>
