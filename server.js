@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 var corsOptions = {
-  origin: "http://172.17.0.4:8081"
+  origin: "http://167.99.155.106:3000"
 };
 app.use(cors(corsOptions));
 const db = require("./app/models");
