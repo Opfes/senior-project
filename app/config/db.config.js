@@ -1,9 +1,9 @@
 module.exports = {
-    HOST: "",
-    USER: "",
-    PASSWORD: "",
-    DB: "",
-    dialect: "",
+    HOST: "172.17.0.2",
+    USER: "drew",
+    PASSWORD: "underwaterTangerine##",
+    DB: "sharkboard",
+    dialect: "mysql",
     pool: {
       max: 5,
       min: 0,
