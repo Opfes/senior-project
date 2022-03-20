@@ -1,7 +1,7 @@
 import axios from "axios";
 //I have a feeling this url will need to be changed later to the IP
 //of the machine
-const API_URL = "http://localhost:8080/api/auth/";
+const API_URL = "http://167.99.155.106:8080/api/auth/";
 const register = (username, email, password) => {
   return axios.post(API_URL + "signup", {
     username,
