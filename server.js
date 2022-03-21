@@ -4,7 +4,7 @@ const app = express();
 var corsOptions = {
   origin: "http://localhost:3000"
 };
-app.use(cors(corsOptions));
+app.use(cors());
 const db = require("./app/models");
 db.sequelize.sync();
 // parse requests of content-type - application/json
