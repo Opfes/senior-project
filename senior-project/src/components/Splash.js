@@ -1,31 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Button, Paper } from '@mui/material';
+import { Link } from "react-router-dom";
 
 //https://app.haikei.app/
 //https://fireship.io/lessons/wavy-backgrounds/
 //https://colorhunt.co/palette/03045e00b4d890e0efcaf0f8
 
-function App() {
+function Splash() {
   return (
     <html>
       <body className='bg layer1'>
+        <h1 style={{padding:"20px"}}>SharkBoard</h1>
         <Grid container
           spacing={0}
           direction="column"
           justifyContent="center"
-          style={{ minHeight: '100vh' }}
+          style={{ minHeight: '75vh' }}
         >
-            <Grid item zeroMinWidth><Paper className='paper'>
+            <Grid item><Paper className='paper'>
               <Grid container
               direction={'column'}
               alignItems='center'
               spacing={3}>
-                <Grid item><h1>SharkBoard</h1></Grid>
-                <Grid item><Button variant='contained'>Log In</Button></Grid>
-                <Grid item><Button variant='contained'>Sign Up</Button></Grid>
+                <Grid item><h1>Welcome!</h1></Grid>
+                <Grid item><Button variant='contained'><Link to="/login">Log In</Link></Button></Grid>
+                <Grid item><Button variant='contained'><Link to="/register">Sign Up</Link></Button></Grid>
               </Grid>
             </Paper></Grid>
         </Grid>
@@ -34,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default Splash;

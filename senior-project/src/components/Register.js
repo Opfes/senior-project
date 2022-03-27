@@ -5,6 +5,8 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
+import { Paper, Grid } from '@mui/material';
+import { Link } from "react-router-dom";
 const required = (value) => {
   if (!value) {
     return (
@@ -86,68 +88,75 @@ const Register = (props) => {
     }
   };
   return (
-    <div className="col-md-12">
-      <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
-        <Form onSubmit={handleRegister} ref={form}>
-          {!successful && (
-            <div>
+    <body className="bg layer1">
+      <h1 style={{padding:"20px"}}><Link to="/">SharkBoard</Link></h1>
+      <Grid container
+        spacing={0}
+        direction="column"
+        justifyContent="center"
+        style={{ minHeight: '70vh' }}
+      >
+        <Grid item><Paper className="paper">
+          <Form onSubmit={handleRegister} ref={form}>
+            {!successful && (
+              <div><Grid container direction="column" spacing={3}>
+                <Grid item>
+                  <h2>Welcome to Sharkboard!</h2>
+                  <p>We're so excited to have you join our platform.<br/>Enter your information below to get started.</p>
+                </Grid>
+                <Grid item>
+                  <label htmlFor="email">Email</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="email"
+                    value={email}
+                    onChange={onChangeEmail}
+                    validations={[required, validEmail]}
+                  />
+                </Grid>
+                <Grid item>
+                  <label htmlFor="username">Username</label>
+                  <Input
+                    type="text"
+                    className="form-control"
+                    name="username"
+                    value={username}
+                    onChange={onChangeUsername}
+                    validations={[required, vusername]}
+                  />
+                </Grid>
+                <Grid item>
+                  <label htmlFor="password">Password</label>
+                  <Input
+                    type="password"
+                    className="form-control"
+                    name="password"
+                    value={password}
+                    onChange={onChangePassword}
+                    validations={[required, vpassword]}
+                  />
+                </Grid>
+                <Grid item>
+                  <button className="btn btn-primary btn-block">Sign Up</button>
+                </Grid>
+                </Grid></div>
+            )}
+            {message && (
               <div className="form-group">
-                <label htmlFor="username">Username</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  name="username"
-                  value={username}
-                  onChange={onChangeUsername}
-                  validations={[required, vusername]}
-                />
+                <div
+                  className={ successful ? "alert alert-success" : "alert alert-danger" }
+                  role="alert"
+                >
+                  {message}
+                </div>
               </div>
-              <div className="form-group">
-                <label htmlFor="email">Email</label>
-                <Input
-                  type="text"
-                  className="form-control"
-                  name="email"
-                  value={email}
-                  onChange={onChangeEmail}
-                  validations={[required, validEmail]}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <Input
-                  type="password"
-                  className="form-control"
-                  name="password"
-                  value={password}
-                  onChange={onChangePassword}
-                  validations={[required, vpassword]}
-                />
-              </div>
-              <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
-              </div>
-            </div>
-          )}
-          {message && (
-            <div className="form-group">
-              <div
-                className={ successful ? "alert alert-success" : "alert alert-danger" }
-                role="alert"
-              >
-                {message}
-              </div>
-            </div>
-          )}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
-      </div>
-    </div>
+            )}
+            <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          </Form>
+        </Paper></Grid>
+      </Grid>
+    </body>
   );
 };
 export default Register;

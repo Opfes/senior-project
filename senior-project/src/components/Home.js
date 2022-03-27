@@ -17,11 +17,11 @@ const Home = () => {
     );
   }, []);
   return (
-    <div className="container">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
-    </div>
+    <body>
+      <div className="bg layer1">
+        <h1>{content}</h1>
+      </div>
+    </body>
   );
 };
 export default Home;
