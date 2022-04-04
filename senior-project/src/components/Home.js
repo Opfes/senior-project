@@ -5,11 +5,12 @@ import { Button, Paper } from '@mui/material';
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState([]);
   useEffect(() => {
     UserService.getUserBoard().then(
       (response) => {
         setContent(response.data);
+        console.log(content);
       },
       (error) => {
         const _content =
@@ -28,8 +29,12 @@ const Home = () => {
   return (
     <body>
       <div className="bg layer1">
-        <h1>{content}<br/></h1>
         <Button variant='contained'><Link to="/profile">My Profile</Link></Button>
+        {content.map((bite)=> (
+          <div>
+            <p>{bite.id}{bite.post}{bite.createdAt}{bite.user.username}</p>
+          </div>
+        ))}
       </div>
     </body>
   );

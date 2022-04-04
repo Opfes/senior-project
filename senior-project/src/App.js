@@ -27,7 +27,6 @@ const App = () => {
     AuthService.logout();
   };
 
-  currentUser ? console.log("true") : console.log("false")
   return ( currentUser ? (
     
       <Routes>

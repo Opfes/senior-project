@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize) => {
         post: {
             type: Sequelize.STRING
         },
-        updatedAt: {
+        createdAt: {
             type: Sequelize.DATE
         },
         user_id: {
