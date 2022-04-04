@@ -7,12 +7,7 @@ exports.allAccess = (req, res) => {
 };
 
 exports.userBoard = (req, res) => {
-  Bite.findAll({
-    include: {
-      model: user,
-      required: true
-    }
-  })
+  Bite.findAll()
     .then(bites => {
       res.status(200).send(bites);
     })

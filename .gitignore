@@ -2,3 +2,4 @@ node_modules
 senior-project/node_modules
 app/config
 senior-project/Dockerfile
+Dockerfile
