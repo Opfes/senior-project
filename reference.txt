@@ -1,0 +1,3 @@
+docker run -d -p 3000:3000 --name client1 --restart unless-stopped dmlindsay/sharkboard-client:1.6.6
+
+docker run -d -p 8080:8080 --name backend1 --restart unless-stopped dmlindsay/sharkboard-backend:1.6.1

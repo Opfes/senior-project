@@ -24,4 +24,5 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+  app.post("/api/test/postbite", [authJwt.verifyToken], controller.postBite);
 };

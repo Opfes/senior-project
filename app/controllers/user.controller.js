@@ -23,6 +23,15 @@ exports.userBoard = (req, res) => {
     });
 };
 
+exports.postBite = (req, res) => {
+  Bite.create({
+    post: req.body.post,
+    user_id: req.body.uid,
+  }).catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+}
+
 exports.adminBoard = (req, res) => {
     res.status(200).send("Admin Content.");
 };
