@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
         createdAt: {
             type: Sequelize.DATE
         },
-        user_id: {
+        userId: {
             type: Sequelize.INTEGER
         }
     });

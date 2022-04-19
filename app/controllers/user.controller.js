@@ -25,8 +25,9 @@ exports.userBoard = (req, res) => {
 
 exports.postBite = (req, res) => {
   Bite.create({
+    subQuery: false,
     post: req.body.post,
-    user_id: req.body.uid,
+    userId: req.body.uid,
   }).catch(err => {
     res.status(500).send({ message: err.message });
   });

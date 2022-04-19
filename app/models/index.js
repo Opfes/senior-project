@@ -33,7 +33,7 @@ db.user.belongsToMany(db.role, {
   otherKey: "roleId"
 });
 db.user.hasMany(db.bite, {
-  foreignKey: "user_id"
+  foreignKey: "userId", as: 'users'
 });
 db.bite.belongsTo(db.user);
 db.ROLES = ["user", "admin", "moderator"];
