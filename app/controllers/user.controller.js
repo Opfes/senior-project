@@ -28,6 +28,8 @@ exports.postBite = (req, res) => {
     subQuery: false,
     post: req.body.post,
     userId: req.body.uid,
+  }).then(()=>{
+    res.send({ message: "Bite posted successfully." });
   }).catch(err => {
     res.status(500).send({ message: err.message });
   });

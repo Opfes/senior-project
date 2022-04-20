@@ -33,7 +33,7 @@ const Profile = () => {
                 <Grid item><p><strong>Email:</strong> {currentUser.email}</p></Grid>
                 <Grid item><strong>Authorities:</strong></Grid>
                 <Grid item>{currentUser.roles && currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}</Grid>
-                <Grid item><Button variant='contained'><a href="/login" className="nav-link" onClick={logOut}>LogOut</a></Button></Grid>
+                <Grid item><Button variant='contained'><a href="/login" onClick={logOut}>LogOut</a></Button></Grid>
               </Grid>
             </Paper></Grid>
         </Grid>

@@ -19,6 +19,10 @@ const getAdminBoard = () => {
   return axios.get(API_URL + "admin", { headers: authHeader() });
 };
 
+const postBite = (post, uid) => {
+  return axios.post(API_URL + "postbite", {post, uid}, { headers: authHeader() });
+}
+
 export default {
   getPublicContent,
   getUserBoard,
