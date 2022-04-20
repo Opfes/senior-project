@@ -37,6 +37,7 @@ const Home = () => {
       }
     );
   }, []);
+  
   const handlePost = (e) => {
     if (numberCharBites > 0){
       if (numberCharBites < 256 && numberCharBites > 0) {
@@ -60,6 +61,7 @@ const Home = () => {
       window.alert("Bite cannot be blank.");
     }
   }
+
 
 
   return (
