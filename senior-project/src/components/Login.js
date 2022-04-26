@@ -68,7 +68,7 @@ const Login = (props) => {
         justifyContent="center"
         style={{ minHeight: '70vh' }}
       >
-        <Grid item><Paper className="paper">
+        <Grid item><Paper className="paper" sx={{backgroundColor:'#00B4D8', maxWidth:'250px'}}>
           <Form onSubmit={handleLogin} ref={form}><Grid container direction="column" spacing={3}>
             <Grid item>
               <h2>Welcome back!</h2>

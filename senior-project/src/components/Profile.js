@@ -18,17 +18,16 @@ const Profile = () => {
           spacing={0}
           direction="column"
           justifyContent="center"
+          alignItems='center'
           style={{ minHeight: '75vh' }}
         >
-            <Grid item><Paper className='paper'>
+            <Grid item><Paper className='paper' sx={{backgroundColor:'#00B4D8',}}>
               <Grid container
               direction={'column'}
               alignItems='center'
               spacing={3}>
                 <Grid item><h1>Welcome!</h1></Grid>
-                <Grid item><h3><strong>{currentUser.username}</strong> Profile</h3></Grid>
-                <Grid item><p><strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
-                  {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}</p></Grid>
+                <Grid item><h3><strong>{currentUser.username}'s</strong> Profile</h3></Grid>
                 <Grid item><p><strong>Id:</strong> {currentUser.id}</p></Grid>
                 <Grid item><p><strong>Email:</strong> {currentUser.email}</p></Grid>
                 <Grid item><strong>Authorities:</strong></Grid>

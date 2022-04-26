@@ -17,13 +17,15 @@ function Splash() {
           spacing={0}
           direction="column"
           justifyContent="center"
-          style={{ minHeight: '75vh' }}
+          alignItems='center'
+          style={{ minHeight: '75vh'}}
         >
-            <Grid item><Paper className='paper'>
+            <Grid item><Paper className='paper' sx={{backgroundColor:'#00B4D8',}}>
               <Grid container
               direction={'column'}
               alignItems='center'
-              spacing={3}>
+              spacing={3}
+              >
                 <Grid item><h1>Welcome!</h1></Grid>
                 <Grid item><Button variant='contained'><Link to="/login">Log In</Link></Button></Grid>
                 <Grid item><Button variant='contained'><Link to="/register">Sign Up</Link></Button></Grid>

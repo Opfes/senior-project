@@ -9,6 +9,7 @@ exports.allAccess = (req, res) => {
 exports.userBoard = (req, res) => {
   Bite.findAll({
     attributes: ['id', 'post', 'createdAt'],
+    order: [['id','DESC']],
     include: [{
       model: user,
       required: true,
@@ -22,6 +23,7 @@ exports.userBoard = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+
 
 exports.postBite = (req, res) => {
   Bite.create({
