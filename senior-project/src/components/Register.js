@@ -94,9 +94,10 @@ const Register = (props) => {
         spacing={0}
         direction="column"
         justifyContent="center"
+        alignItems='center'
         style={{ minHeight: '70vh' }}
       >
-        <Grid item><Paper className="paper">
+        <Grid item><Paper className="paper" sx={{backgroundColor:'#00B4D8', maxWidth:'250px'}}>
           <Form onSubmit={handleRegister} ref={form}>
             {!successful && (
               <div><Grid container direction="column" spacing={3}>

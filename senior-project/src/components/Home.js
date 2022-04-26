@@ -62,7 +62,19 @@ const Home = () => {
     }
   }
 
-
+  const handleDelete = (value) => {
+    UserService.deleteBite(value).then(
+      () => {window.location.reload()},(error) => {
+        const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+          window.alert(resMessage);
+      }
+    )
+  }
 
   return (
     <body>
@@ -80,7 +92,7 @@ const Home = () => {
           <CardContent><Grid container direction="column" spacing={4}>
             <Grid item><h5><strong>Something on your mind?</strong></h5></Grid>
             <Grid item><TextField id="outlined-textarea" label="Bite" placeholder='Bite' multiline value={userBite} onChange={onChangeBite}/>{(numberCharBites > 255) ? <p style={{color:'red'}}>{numberCharBites}/255</p> : <p>{numberCharBites}/255</p>}</Grid> 
-            <Grid item><Form onSubmit={handlePost} ref={form}><button >Post Bite</button><CheckButton style={{ display: "none" }} ref={checkBtn} /></Form></Grid>
+            <Grid item><Form onSubmit={handlePost} ref={form}><Button variant='contained' type="submit">Post Bite</Button><CheckButton style={{ display: "none" }} ref={checkBtn} /></Form></Grid>
             </Grid></CardContent>
           </Card>
         </Box></Grid>
@@ -91,6 +103,7 @@ const Home = () => {
               <p style={{fontSize: 16}}>@{bite.user.username}</p>
               <p style={{fontSize: 22}}>{bite.post}</p>
               <p style={{fontSize: 14}}>{bite.createdAt}</p>
+              {bite.user.username === currentUser.username && <Button variant='contained' color="error" onClick={() => handleDelete(bite.id)}>Delete</Button>}
             </CardContent>
             </Card>
           </Box></Grid>

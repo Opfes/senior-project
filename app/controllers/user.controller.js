@@ -35,7 +35,19 @@ exports.postBite = (req, res) => {
   }).catch(err => {
     res.status(500).send({ message: err.message });
   });
-}
+};
+
+exports.deleteBite = (req, res) => {
+  Bite.destroy({
+    where: {
+      id: req.body.id
+    }
+  }).then(()=> {
+    res.send({ message: "Bite removed successfully."});
+  }).catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+};
 
 exports.adminBoard = (req, res) => {
     res.status(200).send("Admin Content.");

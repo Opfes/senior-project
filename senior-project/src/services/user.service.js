@@ -23,10 +23,15 @@ const postBite = (post, uid) => {
   return axios.post(API_URL + "postbite", {post, uid}, { headers: authHeader() });
 }
 
+const deleteBite = (id) => {
+  return axios.post(API_URL + "deleteBite", {id}, { headers: authHeader() });
+}
+
 export default {
   getPublicContent,
   getUserBoard,
   getModeratorBoard,
   getAdminBoard,
-  postBite
+  postBite,
+  deleteBite
 };
