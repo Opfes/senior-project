@@ -7,19 +7,29 @@ import { Link } from "react-router-dom";
 import Form from "react-validation/build/form";
 import CheckButton from "react-validation/build/button";
 
+//homepage for the client
+
 const Home = () => {
+  //array to hold content from db
   const [content, setContent] = useState([]);
+  //hold the string for the post the user is typing
   const [userBite, setUserBite] = useState('');
+  //length of the post the user is typing
   const [numberCharBites, setNumberCharBites] = useState(0);
+  //placeholder for error messages
   const [message, setMessage] = useState("");
+  //use auth service to pass down current user data
   const currentUser = AuthService.getCurrentUser();
+  //form and check button import stuff
   const form = useRef();
   const checkBtn = useRef();
+  //function to continually update value in the post text field
   const onChangeBite = (e) => {
     const userBite = e.target.value;
     setUserBite(userBite);
     setNumberCharBites(userBite.length);
   };
+  //on page load, attempt to pull posts from db
   useEffect(() => {
     UserService.getUserBoard().then(
       (response) => {
@@ -27,6 +37,7 @@ const Home = () => {
         console.log(content);
       },
       (error) => {
+        //catch for an error
         const _content =
           (error.response && 
             error.response.data &&
@@ -38,13 +49,17 @@ const Home = () => {
     );
   }, []);
   
+  //handle a post to the db
   const handlePost = (e) => {
+    //ensure post isn't too short
     if (numberCharBites > 0){
+      //ensure it isn't too long
       if (numberCharBites < 256 && numberCharBites > 0) {
-        console.log("post validated");
+        //call the post bite function to push the data to the backend as a request
         UserService.postBite(userBite, currentUser.id).then(
           () => {
           },(error) => {
+            //return errors
             const resMessage =
             (error.response &&
               error.response.data &&
@@ -62,9 +77,12 @@ const Home = () => {
     }
   }
 
+  //function to handle deletion from database
   const handleDelete = (value) => {
     UserService.deleteBite(value).then(
+      //reload on success
       () => {window.location.reload()},(error) => {
+        //catch error from db or backend
         const resMessage =
             (error.response &&
               error.response.data &&
@@ -76,6 +94,7 @@ const Home = () => {
     )
   }
 
+  //html for the page, including the mapping of bites, and conditional delete button rendering
   return (
     <body>
       <div className="bg layer1">

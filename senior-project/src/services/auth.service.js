@@ -1,7 +1,7 @@
 import axios from "axios";
-//I have a feeling this url will need to be changed later to the IP
-//of the machine
+//URL for the backend
 const API_URL = "http://167.99.155.106:8080/api/auth/";
+//register function with HTTP request
 const register = (username, email, password) => {
   return axios.post(API_URL + "signup", {
     username,
@@ -9,6 +9,7 @@ const register = (username, email, password) => {
     password,
   });
 };
+//login function with HTTP request
 const login = (username, password) => {
   return axios
     .post(API_URL + "signin", {
@@ -22,9 +23,11 @@ const login = (username, password) => {
       return response.data;
     });
 };
+//logout function removes user data from local storage
 const logout = () => {
   localStorage.removeItem("user");
 };
+//pull user data from local storage
 const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };

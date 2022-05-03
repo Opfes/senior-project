@@ -1,3 +1,4 @@
+//db model that tells Sequelize what columns the bites need
 module.exports = (sequelize, Sequelize) => {
     const Bite = sequelize.define("bites", {
         post: {

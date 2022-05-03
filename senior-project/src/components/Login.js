@@ -7,6 +7,7 @@ import CheckButton from "react-validation/build/button";
 import AuthService from "../services/auth.service";
 import { Link, useNavigate } from "react-router-dom";
 import { Paper, Grid } from '@mui/material';
+//if a required field is left blank
 const required = (value) => {
   if (!value) {
     return (
@@ -18,13 +19,17 @@ const required = (value) => {
 };
 
 const Login = (props) => {
+  //instantiate form features from react-validate
   const form = useRef();
   const checkBtn = useRef();
+  //navigate from react-router
   let navigate = useNavigate();
+  //useStates to hold different values passed in from the page
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  //onchange functions to keep track of what users are typing, as they are typing it
   const onChangeUsername = (e) => {
     const username = e.target.value;
     setUsername(username);
@@ -33,17 +38,23 @@ const Login = (props) => {
     const password = e.target.value;
     setPassword(password);
   };
+
+  //functin that actually calls the login
   const handleLogin = (e) => {
     e.preventDefault();
     setMessage("");
     setLoading(true);
+    //checks to ensure data on page passes all checks for validation
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
+      //attempt the login
       AuthService.login(username, password).then(
         () => {
+          //if successful, redirect and reload
           navigate("/");
           window.location.reload();
         },
+        //else, pass error message
         (error) => {
           const resMessage =
             (error.response &&
@@ -59,6 +70,7 @@ const Login = (props) => {
       setLoading(false);
     }
   };
+  //html including the form that handles the inputs for login
   return (
     <body className="bg layer1">
       <h1 style={{padding:"20px"}}><Link to="/">SharkBoard</Link></h1>

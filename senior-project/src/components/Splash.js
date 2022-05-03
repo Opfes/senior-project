@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 //https://fireship.io/lessons/wavy-backgrounds/
 //https://colorhunt.co/palette/03045e00b4d890e0efcaf0f8
 
+//This page is just the default landing and allows users to navigate to sign up or login
+
 function Splash() {
   return (
     <html>

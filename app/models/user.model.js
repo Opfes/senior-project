@@ -1,3 +1,4 @@
+//tells Sequelize the columns that the user table needs to have
 module.exports = (sequelize, Sequelize) => {
     const User = sequelize.define("users", {
       username: {

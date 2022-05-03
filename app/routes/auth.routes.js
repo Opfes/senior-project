@@ -8,6 +8,7 @@ module.exports = function(app) {
     );
     next();
   });
+  //functions to run when the signup route is accessed
   app.post(
     "/api/auth/signup",
     [
@@ -16,5 +17,6 @@ module.exports = function(app) {
     ],
     controller.signup
   );
+  //function to run when sign in route is accessed
   app.post("/api/auth/signin", controller.signin);
 };

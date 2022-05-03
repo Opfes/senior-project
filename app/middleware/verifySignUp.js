@@ -1,8 +1,9 @@
 const db = require("../models");
 const ROLES = db.ROLES;
 const User = db.user;
+//checks db to see if username or email is already in use
 checkDuplicateUsernameOrEmail = (req, res, next) => {
-  // Username
+  // query db for username to see if used
   User.findOne({
     where: {
       username: req.body.username
@@ -10,11 +11,13 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
   }).then(user => {
     if (user) {
       res.status(400).send({
+        //throws an error if occupied
         message: "Failed! Username is already in use!"
       });
+      //continues otherwise
       return;
     }
-    // Email
+    // query db for email
     User.findOne({
       where: {
         email: req.body.email

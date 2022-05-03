@@ -1,3 +1,4 @@
+//tells Sequelize how to handle the role table
 module.exports = (sequelize, Sequelize) => {
     const Role = sequelize.define("roles", {
       id: {

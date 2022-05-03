@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom';
 import { Grid, Button, Paper } from '@mui/material';
 
 const Profile = () => {
+  //reads data for current user
   const currentUser = AuthService.getCurrentUser();
 
+  //calls logout from auth service
   const logOut = () => {
     AuthService.logout();
   };
 
+  //html just displays current user data
   return (
     <body className="bg layer1">
       <h1 style={{padding:"20px"}}><Link to="/">SharkBoard</Link></h1>

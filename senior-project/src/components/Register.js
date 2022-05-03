@@ -7,6 +7,7 @@ import { isEmail } from "validator";
 import AuthService from "../services/auth.service";
 import { Paper, Grid } from '@mui/material';
 import { Link } from "react-router-dom";
+//ensure required fields are filled
 const required = (value) => {
   if (!value) {
     return (
@@ -16,6 +17,7 @@ const required = (value) => {
     );
   }
 };
+//ensure email is structured as an email should be
 const validEmail = (value) => {
   if (!isEmail(value)) {
     return (
@@ -25,6 +27,7 @@ const validEmail = (value) => {
     );
   }
 };
+//ensure valid username length
 const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
     return (
@@ -34,6 +37,7 @@ const vusername = (value) => {
     );
   }
 };
+//ensure valid password length
 const vpassword = (value) => {
   if (value.length < 6 || value.length > 40) {
     return (
@@ -43,14 +47,18 @@ const vpassword = (value) => {
     );
   }
 };
+
 const Register = (props) => {
+  //form components
   const form = useRef();
   const checkBtn = useRef();
+  //useStates to hold variables as the page is interacted with
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
+  //functions to handle updating variables as the user changes them
   const onChangeUsername = (e) => {
     const username = e.target.value;
     setUsername(username);
@@ -63,17 +71,22 @@ const Register = (props) => {
     const password = e.target.value;
     setPassword(password);
   };
+  //call the register function
   const handleRegister = (e) => {
     e.preventDefault();
     setMessage("");
     setSuccessful(false);
+    //ensure all input fields meet criteria
     form.current.validateAll();
     if (checkBtn.current.context._errors.length === 0) {
+      //call register
       AuthService.register(username, email, password).then(
         (response) => {
+          //on success
           setMessage(response.data.message);
           setSuccessful(true);
         },
+        //on fail
         (error) => {
           const resMessage =
             (error.response &&
@@ -87,6 +100,7 @@ const Register = (props) => {
       );
     }
   };
+  //html implementing the form
   return (
     <body className="bg layer1">
       <h1 style={{padding:"20px"}}><Link to="/">SharkBoard</Link></h1>
